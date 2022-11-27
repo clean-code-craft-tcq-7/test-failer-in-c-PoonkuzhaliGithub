@@ -17,7 +17,7 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 25);
-    assert((majorColor[0] =='White') && (minorColor[1] =='Orange'));
+    assert((majorColor[0] =="White") && (minorColor[1] =="Orange"));
     printf("All is well (maybe!)\n");
     return 0;
 }
