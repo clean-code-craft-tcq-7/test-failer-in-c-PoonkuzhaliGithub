@@ -20,7 +20,14 @@ int main() {
     assert(result == 25);
     //assert(result == 0);
     //assert(result == 1);
-    assert(result == 2);
+    //assert(result == 2);
+    assert(result == 3);
+    //assert(result == 4);
+    //assert(result == 6);
+    //assert(result == 8);
+    //assert(result == 9);
+    //assert(result == 12);
+    //assert(result == 16);
     printf("All is well (maybe!)\n");
     return 0;
 }
