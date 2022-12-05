@@ -6,11 +6,10 @@ typedef enum
     prod,
     Test
 } Environment;
-
 int alertFailureCount = 0;
 
-int networkAlertStub(float celcius) {
-    
+int networkAlertStub(float celcius) 
+{    
     if(celcius <= 200)
     {
         return 200;
@@ -23,7 +22,6 @@ int networkAlertStub(float celcius) {
 
 int networkAlertProd(float celcius)
 {
-
     if(celcius <= 200)
     {
         return 200;
@@ -36,7 +34,7 @@ int networkAlertProd(float celcius)
 
 float SelectAlertEnvironment(float celcius, Environment environment_e)
 {
-    float calculated_Value;
+   float calculated_Value;
     
    if(environment_e == prod)
    {
@@ -58,16 +56,12 @@ float convertFarenheitToCelcius(float farenheit)
 
 void alertInCelcius(float farenheit, Environment environment_e) 
 {
-
-    float celcius = convertFarenheitToCelcius(farenheit);
-    
-    int returnCode = SelectAlertEnvironment(celcius,environment_e);
-    
-    if (returnCode != 200) {
-        
+    float celcius = convertFarenheitToCelcius(farenheit);    
+    int returnCode = SelectAlertEnvironment(celcius,environment_e);    
+    if (returnCode != 200) 
+    {
         alertFailureCount += 1;      
-    }
-    
+    }   
 }
 
 int main() {
