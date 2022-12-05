@@ -19,9 +19,6 @@ typedef struct {
 } ColorPair;
 
 int printColorMap() {
-    
-    const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
-    const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
@@ -53,8 +50,8 @@ void testNumberToPair(int pairNumber,
 int main() {
     printColorMap();
     testNumberToPair(1,WHITE,BLUE);
-    //testNumberToPair(16,YELLOW,ORANGE);
-    //testNumberToPair(24,VIOLET,SLATE);
+    testNumberToPair(17,YELLOW,ORANGE);
+    testNumberToPair(25,VIOLET,SLATE);
     
     printf("All is well (maybe!)\n");
     return 0;
