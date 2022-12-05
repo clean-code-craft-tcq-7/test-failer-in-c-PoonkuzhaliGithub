@@ -3,17 +3,41 @@
 
 int alertFailureCount = 0;
 
-int networkAlertStub(float celcius) {
+int networkAlertStub(float celcius, alertEnvironment environment_e) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
+    
+
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
         return 200;
 }
 
+int networkAlertproduction(float Converted_celcius)
+{
+
+    if(Converted_celcius <= 200)
+    {
+        return 200;
+    }
+    else
+    {
+        return 500;
+    }
+}    
+
+float convertFarenheitToCelcius(float farenheit)
+{
+    float celcius = ((farenheit - 32) * 5 )/ 9;
+    
+    return celcius;
+}
+
 void alertInCelcius(float farenheit) {
-    float celcius = (farenheit - 32) * 5 / 9;
-    int returnCode = networkAlertStub(celcius);
+
+    float celcius = convertFarenheitToCelcius(farenheit);
+    int returnCode = networkAlertproduction(celcius);
+
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
         // let us keep a count of failures to report
