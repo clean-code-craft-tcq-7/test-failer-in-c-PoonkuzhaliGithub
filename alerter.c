@@ -65,7 +65,7 @@ void alertInCelcius(float farenheit, Environment environment_e)
     
     if (returnCode != 200) {
         
-        alertFailureCount ++;      
+        alertFailureCount += 1;      
     }
     
 }
