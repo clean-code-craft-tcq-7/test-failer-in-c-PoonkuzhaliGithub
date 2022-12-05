@@ -71,7 +71,7 @@ void alertInCelcius(float farenheit, Environment environment_e)
 }
 
 int main() {
-    alertInCelcius(400.5,Test);
+    alertInCelcius(303.6,,Test);
     assert(alertFailureCount == 0);
     alertInCelcius(303.6,prod);
     assert(alertFailureCount == 0);
