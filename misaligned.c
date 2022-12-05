@@ -4,8 +4,8 @@
 enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
 enum MinorColor {BLUE, ORANGE, GREEN, BROWN, SLATE};
 
-const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
-const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+const char* majorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
+const char* minorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 
 int numberOfMajorColors =
     sizeof(majorColorNames) / sizeof(majorColorNames[0]);
@@ -23,7 +23,7 @@ int printColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-            printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[j]);
+            printf("%d | %s | %s\n", i * 5 + j, majorColorNames[i], minorColorNames[j]);
         }
     }
     return i * j;
