@@ -52,9 +52,9 @@ void testNumberToPair(int pairNumber,
 
 int main() {
     printColorMap();
-    testNumberToPair(0,WHITE,BLUE);
-    testNumberToPair(16,YELLOW,ORANGE);
-    testNumberToPair(24,VIOLET,SLATE);
+    testNumberToPair(1,WHITE,BLUE);
+    //testNumberToPair(16,YELLOW,ORANGE);
+    //testNumberToPair(24,VIOLET,SLATE);
     
     printf("All is well (maybe!)\n");
     return 0;
