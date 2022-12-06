@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "alerterStub.h"
 int networkAlertStub(float celcius) 
 {    
     if(celcius <= 200)
