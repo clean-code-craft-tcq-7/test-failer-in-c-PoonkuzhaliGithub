@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-
+#include "alerterStub.h"
 typedef enum
 {
     prod,
