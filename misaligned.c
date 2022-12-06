@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include <misaligned.h>
+#include "misaligned.h"
 
 int printColorMap() {
 
