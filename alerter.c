@@ -1,31 +1,77 @@
 #include <stdio.h>
 #include <assert.h>
 
+typedef enum
+{
+    prod,
+    Test
+} Environment;
 int alertFailureCount = 0;
 
-int networkAlertStub(float celcius) {
-    printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    // Return 200 for ok
-    // Return 500 for not-ok
-    // stub always succeeds and returns 200
-    return 200;
+int networkAlertStub(float celcius) 
+{    
+    if(celcius <= 200)
+    {
+        return 200;
+    }
+    else
+    {
+        return 500;
+    }
+}
+int networkAlertProd(float celcius)
+{
+    if(celcius <= 200)
+    {
+        return 200;
+    }
+    else
+    {
+        return 500;
+    }
+}    
+
+float SelectAlertEnvironment(float celcius, Environment environment_e)
+{
+   float calculated_Value;
+    
+   if(environment_e == prod)
+   {
+     calculated_Value = networkAlertProd(celcius);
+   }
+   else
+   {
+     calculated_Value = networkAlertStub(celcius);
+   }
+   return calculated_Value;
 }
 
-void alertInCelcius(float farenheit) {
-    float celcius = (farenheit - 32) * 5 / 9;
-    int returnCode = networkAlertStub(celcius);
-    if (returnCode != 200) {
-        // non-ok response is not an error! Issues happen in life!
-        // let us keep a count of failures to report
-        // However, this code doesn't count failures!
-        // Add a test below to catch this bug. Alter the stub above, if needed.
-        alertFailureCount += 0;
-    }
+float convertFarenheitToCelcius(float farenheit)
+{
+    float celcius = ((farenheit - 32) * 5 )/ 9;
+    
+    return celcius;
+}
+
+void alertInCelcius(float farenheit, Environment environment_e) 
+{
+    float celcius = convertFarenheitToCelcius(farenheit);    
+    int returnCode = SelectAlertEnvironment(celcius,environment_e);    
+    if (returnCode != 200) 
+    {
+        alertFailureCount += 1;      
+    }   
 }
 
 int main() {
-    alertInCelcius(400.5);
-    alertInCelcius(303.6);
+    alertInCelcius(303.6,Test);
+    assert(alertFailureCount == 0);
+    alertInCelcius(303.6,prod);
+    assert(alertFailureCount == 0);
+    alertInCelcius(505.5,Test);
+    assert(alertFailureCount == 1);
+    alertInCelcius(505.5,prod);
+    assert(alertFailureCount == 2);
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
     return 0;
