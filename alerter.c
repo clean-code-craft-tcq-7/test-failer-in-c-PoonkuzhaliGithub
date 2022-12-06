@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "alerterStub.h"
+
 typedef enum
 {
     prod,
@@ -8,6 +9,17 @@ typedef enum
 } Environment;
 int alertFailureCount = 0;
 
+int networkAlertStub(float celcius) 
+{    
+    if(celcius <= 200)
+    {
+        return 200;
+    }
+    else
+    {
+        return 500;
+    }
+}
 int networkAlertProd(float celcius)
 {
     if(celcius <= 200)
